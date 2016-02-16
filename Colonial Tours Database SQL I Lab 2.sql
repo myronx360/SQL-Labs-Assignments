@@ -1,0 +1,18 @@
+USE tour;
+SELECT TripId, TripName, Type, Season FROM trip;
+SELECT TripID, TripDate, TripPrice	FROM reservation;
+SELECT TripName FROM trip WHERE state != "NH";
+SELECT LastName FROM guide WHERE state = "ME";
+SELECT TripName, StartLocation FROM trip WHERE trip.Type = "Biking";
+SELECT TripName FROM trip WHERE Type = "Paddling";
+SELECT TripName FROM trip WHERE Type = "Hiking" AND Distance > 6;
+SELECT TripName FROM trip WHERE Type = "Paddling" OR State = "VT";
+SELECT COUNT(*) FROM trip WHERE Type = "Paddling" OR Type = "Biking";
+SELECT TripName, State FROM trip WHERE Season = "Summer" ORDER BY TripName, State;
+SELECT COUNT(*) FROM trip WHERE State = "VT";
+SELECT COUNT(*) FROM reservation WHERE TripPrice > 20 AND TripPrice < 5;
+SELECT TripName FROM trip WHERE Type = "Biking" AND Distance > 20;
+SELECT TripName FROM trip WHERE State = "VT" OR MaxGrpSize > 8;
+SELECT COUNT(*) FROM trip WHERE State = "VT" OR State = "CT";
+SELECT ReservationID, NumPersons, TripPrice, OtherFees, (TripPrice * NumPersons) AS PriceTotal FROM reservation WHERE NumPersons > 3 ORDER BY -PriceTotal;
+SELECT CONCAT(LastName,", ", FirstName) AS FullName FROM customer WHERE LastName > "m"  ORDER BY LastName;
